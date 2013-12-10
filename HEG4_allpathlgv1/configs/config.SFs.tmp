@@ -1,0 +1,24 @@
+# Directory that contains net files.
+# The specified directory needs to have a sub-directory named as the reference species. For example, if the reference species is umd3 and the net files are placed in /aaa/bbb/ccc/umd3, then 'netdir' shoule be /aaa/bbb/ccc 
+>netdir
+<currentpath>/MSU7.chain.net
+
+# Directory that contains chain files.
+# The specified directory needs to have a sub-directory named as the reference species. For example, if the reference species is umd3 and the chain files are placed in /aaa/bbb/ccc/umd3, then 'chaindir' shoule be /aaa/bbb/ccc 
+>chaindir
+<currentpath>/MSU7.chain.net
+
+# species-name tag (0: ref-species, 1: descendents, 2: outgroup)
+>species
+MSU7 0
+HEG4 1
+OPU 2
+
+# block resolution (bp)
+>resolution
+50000
+
+# number of chromosomes in a ref-species (up to the X chromosome, excluding the Y chromosome)
+>numchr
+12
+

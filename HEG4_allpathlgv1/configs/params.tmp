@@ -1,0 +1,80 @@
+# File that has the lengths of insert libraries and their means and standard deviations estimated from read mapping.
+# Refer to the sample file 'insertsize_sd.txt'.
+INSERTLIBFILE=<currentpath>/insertsize_sd.txt
+
+# Insert library size threshold for the normal directions of two end reads
+# Size < INSERTSIZETHR : + -
+# Otherwise : - +
+# Due to the difference of library creation for shor and long insert libraries
+# If you think your insert libraries don't care about this, then use very large or small values to use the same criteria for read directions 
+INSERTSIZETHR=1000 
+
+# Input directory that has the paired-end read mapping data
+# Refer to the file format by looling at the files in the TAreads directory.
+# Current version only support that format.
+# If you want to use any existing read alignment programs, you can simply convert the output from those alignment programs to the format that is supported by the current version of RACA.
+READMAPPINGDIR=<currentpath>/HEG4reads
+
+# File that has the insert library name of each paired-end read mapping file in the $READMAPPING directory.
+# Refer to the sample file 'data/readmapping_lib.txt'.
+READMAPPINGLIB=<currentpath>/readmapping_lib.txt 
+
+# The number of processes for parallel execution
+NCPUS=32  
+
+# Size of target scaffolds
+# Refer to the sample file 'panHod2.size'.
+SCFSIZEFILE=<currentpath>/HEG4.size 
+
+# Prefix of target scaffold name
+# If the name of a scaffold is "Scaffold1221", then SCFPREFIX should be Scaffold.
+SCFPREFIX=scaffold_
+
+# Target scaffold sequences
+# This file contains all scaffold sequences
+SCFSEQFILE=<currentpath>/HEG4.fa
+
+# Reference species
+REFSPC=MSU7
+
+# Target species
+TARSPC=HEG4
+
+# Window size for estimating paired-end read coverage threshold
+WINDOWSIZE=1000
+
+# Output directory
+OUTPUTDIR=Out_RACA
+
+# Block resolution (bp)
+RESOLUTION=50000
+
+# The minimum percentage in a null distribution of P_ia(i,j) scores  
+# that are obtained from entire scaffolds
+# The actual P_ia(i,j) value in a null distribution that corresponds to 
+# MIN_INTRACOV_PERC is used as the cutoff threshold for P_ia(i,j)
+MIN_INTRACOV_PERC=5
+
+# Sometimes, SF adjacencies only have comparative genomic information without
+# paired-end read information because of the above MIN_INTRACOV_PERC threshold
+# or long distance between two SFs.
+# If this parameter is set (1), the SF adjacencies with both comparative
+# genomic information and paired-end read information are used in the
+# reconstruction
+IGNORE_ADJS_WO_READS=0
+
+# Newick tree file
+# Refer to the sample file 'tree.txt'.
+TREEFILE=<currentpath>/tree.txt
+
+# Benchmark adjacency file
+# Refer to the sample file 'reliable_adjs.txt'.
+# If you don't have a benchmarking data for this file, then just specify an empty file. This will give an equal weight to the two components in the RACA's scoring function.
+BENADJFILE=<currentpath>/reliable_adjs.txt
+
+# Config and make files for syntenic fragment construction
+# Refer to the sample files 'config.SFs' and 'Makefile.SFs'.
+# You need to change settings in the sample configuration file (config.SFs) according to your data
+# You don't need to change anything in the Makefile.SFs.
+CONFIGSFSFILE=<currentpath>/config.SFs
+MAKESFSFILE=<currentpath>/Makefile.SFs
